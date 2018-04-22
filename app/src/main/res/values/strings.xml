@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TasksPlanningApp</string>
+    <string name="login">Почта</string>
+    <string name="password">Пароль</string>
+    <string name="login_error">Введите логин</string>
+    <string name="password_error">Введите пароль</string>
+    <string name="login_denied">Неверная комбинация логин/пароль</string>
+    <string name="login_success">Успешная авторизация</string>
+    <string name="log_in">Войти</string>
+    <string name="auth">Авторизация</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>
