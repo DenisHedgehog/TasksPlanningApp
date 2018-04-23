@@ -6,11 +6,11 @@
     android:orientation="horizontal"
     android:layout_margin="4dp">
 
-    <RadioButton
-        android:id="@+id/is_subtask_active_rb"
+    <CheckBox
+        android:id="@+id/is_subtask_active_checkbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="5"
+        android:layout_weight="4"
         android:layout_margin="4dp"/>
 
     <TextView

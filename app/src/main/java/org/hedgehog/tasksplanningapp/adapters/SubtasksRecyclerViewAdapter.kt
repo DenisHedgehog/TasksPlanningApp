@@ -4,8 +4,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.RadioButton
 import android.widget.TextView
+import kotlinx.android.synthetic.main.subtask.view.*
 import org.hedgehog.tasksplanningapp.R
 import org.hedgehog.tasksplanningapp.models.Subtask
 
@@ -18,7 +20,7 @@ class SubtasksRecyclerViewAdapter(private val mValues: List<Subtask>)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.fragment_task, parent, false)
+                .inflate(R.layout.subtask, parent, false)
         return ViewHolder(view)
     }
 
@@ -28,11 +30,11 @@ class SubtasksRecyclerViewAdapter(private val mValues: List<Subtask>)
         holder.name.text = item.name
     }
 
-    override fun getItemCount(): Int = 0
+    override fun getItemCount(): Int = mValues.size
 
     inner class ViewHolder(mView: View) : RecyclerView.ViewHolder(mView) {
-        lateinit var status: RadioButton
-        lateinit var name: TextView
+        val status: CheckBox = mView.is_subtask_active_checkbox
+        val name: TextView = mView.subtask_name
     }
 
 }

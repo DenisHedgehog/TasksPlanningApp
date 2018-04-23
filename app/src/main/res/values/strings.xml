@@ -8,8 +8,18 @@
     <string name="login_success">Успешная авторизация</string>
     <string name="log_in">Войти</string>
     <string name="auth">Авторизация</string>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_tasks">Задачи</string>
+    <string name="title_journal">Журнал</string>
+    <string name="title_profile">Профиль</string>
+    <string name="login_with">Войти с помощью:</string>
+    <string name="registration">Регистрация</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="email_error">Введите почту</string>
+    <string name="repeat_password_error">Повторите пароль</string>
+    <string name="pass_doesnt_match">Пароли не совпадают</string>
+    <string name="register_succesful">Регистрация прошла успешно</string>
+    <string name="unsuccesful_register">Не удалось зарегистрироваться</string>
+    <string name="cancel">Отмена</string>
+    <string name="email_already_exist">Пользователь с такой почтой уже зарегистрирован</string>
 </resources>

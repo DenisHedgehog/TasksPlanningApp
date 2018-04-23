@@ -1,17 +1,19 @@
 package org.hedgehog.tasksplanningapp.adapters
 
+import android.app.Activity
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
 import android.widget.TextView
+import kotlinx.android.synthetic.main.fragment_task.view.*
 
 import org.hedgehog.tasksplanningapp.models.Task
 import org.hedgehog.tasksplanningapp.R
-import org.hedgehog.tasksplanningapp.models.Subtask
 
 
-class TasksRecyclerViewAdapter(private val mValues: List<Task>)
+class TasksRecyclerViewAdapter(private val activity: Activity, private val mValues: List<Task>)
     : RecyclerView.Adapter<TasksRecyclerViewAdapter.ViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener = View.OnClickListener { v ->
@@ -29,17 +31,16 @@ class TasksRecyclerViewAdapter(private val mValues: List<Task>)
         holder.name.text = item.name
         holder.desc.text = item.description
         holder.deadline.text = item.deadline.toString()
-        val s = Subtask(0, "Kappa", "Active", 0)
-        val s1 = Subtask(0, "Kappa", "Finished", 0)
-        holder.subtasks.adapter = SubtasksRecyclerViewAdapter(arrayListOf(s, s, s1, s, s1))
+        holder.subtasks.adapter = SubtasksRecyclerViewAdapter(item.subtasks!!.toMutableList())
+        holder.subtasks.layoutManager = LinearLayoutManager(activity)
     }
 
-    override fun getItemCount(): Int = 0
+    override fun getItemCount(): Int = mValues.size
 
     inner class ViewHolder(mView: View) : RecyclerView.ViewHolder(mView) {
-        lateinit var name: TextView
-        lateinit var desc: TextView
-        lateinit var deadline: TextView
-        lateinit var subtasks: RecyclerView
+        val name: TextView = mView.task_name
+        val desc: TextView = mView.task_description
+        val deadline: TextView = mView.task_deadline
+        val subtasks: RecyclerView = mView.task_subtasks
     }
 }

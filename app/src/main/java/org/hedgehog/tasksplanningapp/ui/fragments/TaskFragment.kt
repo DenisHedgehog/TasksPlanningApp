@@ -6,14 +6,16 @@ import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import org.hedgehog.tasksplanningapp.R
 import org.hedgehog.tasksplanningapp.adapters.TasksRecyclerViewAdapter
+import org.hedgehog.tasksplanningapp.models.Subtask
 
 import org.hedgehog.tasksplanningapp.models.Task
-import org.hedgehog.tasksplanningapp.ui.activities.MainActivity
+import java.util.*
 
 
 class TaskFragment : Fragment() {
@@ -31,14 +33,19 @@ class TaskFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_tasks_list, container, false)
 
-        // Set the adapter
         if (view is RecyclerView) {
             with(view) {
                 layoutManager = when {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-//                adapter = TasksRecyclerViewAdapter()
+                val s = Subtask(0, "Kappa", "Active", 0)
+                val s1 = Subtask(0, "Kappa", "Finished", 0)
+                val t = Task(0, "Kappa", "Kappa description. KappaPride.", Date().time,
+                        Date().time, arrayOf(s, s, s1, s, s1), "Active")
+                val list = listOf(t, t, t, t, t)
+                Log.i(" BEFORE ADAPTER SET", "LIST SIZE = ${list.size}")
+                adapter = TasksRecyclerViewAdapter(activity!!, list)
             }
         }
         return view
